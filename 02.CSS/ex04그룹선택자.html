@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS-그룹선택자</title>
+    <style>
+        /* 그룹 선택자: ,를 표시 */
+        h1, p{
+            color: blue !important;
+        }
+
+        /* 스타일 시트 가중치
+            전체 선택자: 0
+            태그 선택자: 1
+            클래스 선택자: 10
+            아이디 선택자: 100
+             => 무조건 가장 가중치를 높게 만드는 것: !important;
+        */
+        
+        #h1Title{
+            color: green;
+        }
+
+        /* h1, #am{
+            color: red;;
+        } 
+        내가 혼자 실험한 거~ */
+
+        /* 반응 선택자 */
+        #am:active{
+            color: pink;
+        }
+
+        #pm:hover{
+            color: lime;
+        }
+
+    </style>
+</head>
+<body>
+    <h1 id="h1Title">K강의장 수업</h1>
+    <p>녹화 꼭 해주세요!</p>
+    <ul>
+        <li id="am">오전 : 선영표</li>
+        <li id="pm">오후 : 강예진</li>
+    </ul>
+</body>
+</html>

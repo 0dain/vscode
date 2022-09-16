@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>htmlelement</title>
+</head>
+<body>
+    <p id = "p1"><b>Hello</b>, JS!</p>
+
+    <span>가</span>
+    <span class="c1">나</span>
+    <span>다</span>
+
+    <br>
+
+    <h1></h1>
+    <h1 class="c1"></h1>
+
+    <br>
+
+    <input type="checkbox" name="subject" value="자바">자바
+    <input type="checkbox" name="subject" value="안드">안드로이드
+    <input type="checkbox" name="subject" value="웹">웹
+    <input type="text" name="subject">
+    <textarea name="subject" id="ta"></textarea>
+
+    <div id="tt"></div>
+
+    <button onclick="getId()">ID가 p1인 태그 접근</button>
+    <button onclick="getSpan()">Span태그 접근</button>
+    <button onclick="getClass()">class가 c1인 태그 접근</button>
+    <button onclick="getName()">name이 subject인 태그 접근</button>
+
+    <script>
+        function getId(){
+            //id가 p1인 요소에 접근
+            //getElementById
+            let p1=document.getElementById('p1');//문자열로 적어주지 않으면 그냥 변수라고 인식해서 제대로 동작하지 않음
+            console.log(p1);
+            //innerHTML: 태그 사이에 있는 모든 요소 가지고 오기
+            //          모든 요소들이란? 텍스트+태그
+            console.log(p1.innerHTML);
+            //innerText: 태그 사이에 있는 모든 텍스트 요소 가지고 오기 => 태그는 안 가져오고 텍스트만 가져옴!
+            console.log(p1.innerText);
+        }
+
+        function getSpan(){
+            let spans=document.getElementsByTagName('span');
+            console.log(spans);//배열처럼 출력됨
+
+            //배열과 비슷한 모양이기 때문에 배열 다루듯이 해주면 됨~
+            for(var i=0;i<spans.length;i++){
+                console.log(spans[i].innerText);
+            }
+        }
+
+        //화살표 함수
+        let getClass=()=>{
+            let c1=document.getElementsByClassName('c1');
+            console.log(c1);
+            for(var i=0;i<c1.length;i++){
+                //안의 요소 값을 바꾸고 싶을 때
+                // c1[i].innerText="<u>클래스로 접근!</u>";
+                //innerText는 텍스트 요소만 추가하기 때문에 태그를 문자로 인식해서 텍스트로 넣어버림
+
+                //태그를 적용하고 싶을 땐 innerHTML로 쓰기~
+                c1[i].innerHTML="<u>클래스로 접근~</u>"
+            }
+        }
+
+        function getName(){
+            let sub=document.getElementsByName('subject');
+            console.log(sub);
+
+            for(var i=0;i<sub.length;i++){
+                //form태그 내의 사용자가 입력(선택)한 값을 가지고 오고 싶을 땐 value를 사용해야 함!
+                //textarea도 value를 사용해야 함!
+                console.log(sub[i].value);
+            }
+            //textarea에 내용 추가하기
+            let ta=document.getElementById('ta');
+            ta.value="텍스트 추가~!";
+        }
+    </script>
+
+</body>
+</html>

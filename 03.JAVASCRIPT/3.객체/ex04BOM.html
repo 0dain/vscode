@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BOM</title>
+</head>
+<body>
+    <button onclick="window.close()">닫기</button>
+    <button onclick="location.href = 'https://www.naver.com'">네이버로 이동</button>
+
+    <!-- 이전페이지로 -->
+    <a href="ex04history.html">페이지 이동</a>
+
+    <script>
+        //window: 브라우저 창(현재 브라우저를 가리킴)
+        //open(): 새창 띄우기
+        //open("열고 싶은 사이트 URL","사이트 명","크기랑 위치 지정")
+        //alert, prompt, confirm => window 생략됨
+        // window.open("https://www.nate.com","네이트","width=400, height=500,left=100,top=50");
+    
+        //screen: 사용자의 모니터 정보
+        console.log(`화면 너비 : ${screen.width}`);
+        console.log(`화면 높이 : ${screen.height}`);
+
+        //navigator: 현재 사용자가 사용하는 브라우저/운영체제 정보 제공
+        console.log("브라우저의 이름: "+navigator.appName);
+        console.log("브라우저 사용 언어: "+navigator.language);
+
+        //location: 주소창 정보
+        console.log("현재 주소: "+location.href);
+
+    </script>
+</body>
+</html>

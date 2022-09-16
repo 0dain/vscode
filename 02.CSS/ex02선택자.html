@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS-선택자</title>
+
+    <style>
+        /* 1. 전체 선택자(*) */
+        *{
+            color: green;
+        }
+
+        /* 2. 태그 선택자(태그 이름) */
+        li{
+            color: blue;
+        }
+
+        /* 선택자들을 구분해서 디자인 해주는 경우 => 특정 요소들만 선택
+           => 클래스 / 아이디
+           
+           클래스 => 중복O, 재사용성이 뛰어남
+           아이디 => 중복X, 한 문서에 같은 아이디를 사용할 수 없음
+        */
+
+        /* 3. 클래스 선택자(.클래스 이름) */
+        .food{
+            color: black;
+        }
+
+        /* 4. 아이디 선택자(#아이디 이름) */
+        #tuna{
+            color: red;
+
+        }
+
+        
+    </style>
+</head>
+<body>
+    <h1>CSS</h1>
+    <p>웹페이지를 꾸며주는 스타일 시트 언어</p>
+    <ul>
+        <li>CSS 기본구조</li>
+        <li>CSS 선택자</li>
+        <li>CSS 스타일</li>
+    </ul>
+    <h1 class="food">이번주에 뭐먹지~</h1>
+    <ul>
+        <li class="food">연어</li>
+        <li class="food" id="tuna">참치</li>
+        <li class="food">샐러드</li>
+    </ul>
+</body>
+</html>

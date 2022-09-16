@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS-border-radius</title>
+
+    <style>
+        #box{
+            width: 100px;
+            height: 100px;
+            background-color: tomato;
+
+            /* border-radius: 테두리를 둥굴게 만들어주는 속성 
+                border-위/아래 -왼/오 - radius => 특정 모서리만 둥글게 만들어줄 수 있음
+            */
+
+            /* 1. 위쪽 왼쪽 둥글게 */
+            border-top-left-radius: 10px;
+
+            /* 2. 아래쪽 왼쪽 둥글게 */
+            border-bottom-left-radius: 10%;
+
+            /* 위쪽 오른쪽 동글게 */
+            border-top-right-radius: 20px;
+
+            /* 아래쪽 오른쪽 둥글게 */
+            border-bottom-right-radius: 20%;
+            /* 세밀하게 작업할 땐 px, 과감하게 할 땐 % */
+
+            /* 완전한 원으로 만들고자 할 때 */
+            border-radius: 50%;
+            /* 50%이상으로 값을 주는건 추천하지 않음 => 도형이 찌그러짐 */
+        }
+
+        
+    </style>
+</head>
+<body>
+    <div id="box"></div>    
+</body>
+</html>

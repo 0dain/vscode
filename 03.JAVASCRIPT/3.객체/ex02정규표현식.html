@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>정규표현식</title>
+</head>
+<body>
+    <script>
+        //전화번호 체크하는 정규표현식
+        // /^(시작) $/(끝)
+        //-?: 하이픈 써도 되고 안 써도 돼
+        //(): 어떤 숫자가 들어올 지 모를 때 선택할 수 있게 선택지를 주는 거
+        //{}: 몇자리 들어갈 건지
+        //([x|y]): x 또는 y를 입력할 수 있음
+        //([x-n]{y}): x부터 n까지 y개를 입력할 수 있음
+        let regPhone=/^01([0|1|9])-?([0-9]{4})-?([0-9]{4})$/;
+
+        let phone='019-5000-5000';
+        // console.log(regPhone.test(phone))
+        if(regPhone.test(phone)==true){
+            console.log("맞는 형식");
+        }else{
+            console.log("틀린 형식");
+        }
+
+    </script>
+</body>
+</html>

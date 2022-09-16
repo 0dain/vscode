@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS-박스사이징</title>
+
+    <style>
+        div{
+            width: 500px;
+            border: 20px solid gray;
+            padding: 20px;
+        }
+
+        /* Box-Sixing: 요소의 크기를 화면에 표시하는 방식
+
+            BoxModel
+            : content => padding => border => margin
+
+            (1)content-box
+            : content의 영역만을 크기의 기준으로 삼는다
+
+            (2)border-box
+            : border를 기준으로 안쪽에 있는 영역들을 크기의 기준으로 삼는다(content+padding+border)
+
+        */
+
+        .content-box{
+            box-sizing: content-box;
+
+        }
+
+        .border-box{
+            box-sizing: border-box;
+            /* content의 사이즈를 줄여서라도 크기를 맞춤 */
+        }
+
+    </style>
+</head>
+<body>
+    <div class="content-box">
+        <p>contentBox</p>
+    </div>
+
+    <div class="border-box">
+        <p>borderBox</p>
+    </div>
+</body>
+</html>

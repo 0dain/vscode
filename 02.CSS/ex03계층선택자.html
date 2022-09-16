@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS-계층선택자</title>
+
+    <style>
+        /* 계층 선택자 연습하기! */
+
+        /* 1. div태그를 기준으로 자손 선택자인 span태그의 글자를 tomato색으로 변경 */
+        /* 2. div태그를 기준으로 자손 선택자인 li태그의 글자를 blue색으로 */
+        /* 3. ol태그를 기준으로 자식 선택자인 span태그의 글자를 red색으로 */
+        /* 4. li태그를 기준으로 근접 후행 선택자인 li태그의 글자를 green색으로 */
+        /* 5. li태그를 기준으로 후행 선택자인 li태그의 글자를 yellowgreen색으로 */
+
+        div span{ /*자손 선택자*/
+            color: tomato;
+        }
+
+        div li{/*자손 선택자*/
+            color: blue;
+        }
+
+        ol>span{/*자식 선택자*/
+            color: red;
+        }
+
+        li+li{/*근접 후행 선택자 -> 첫번째 태그를 기준으로 함*/
+            color: green;
+        }
+
+        /* Case 1. 특정 태그에 다가갈 때 id부여해서 하기! -> 기준 선택자를 바꾸는 경우임*/
+        /* #rule~li{ 
+            color: hotpink;
+        } */
+
+        /* Case 2: nth-child(): 괄호안엔 기준으로 하고 싶은 태그의 순서를 써주면 됨*/
+        /* li:nth-child(2)~li{
+            color: hotpink;
+        } */
+
+
+        li~li{/*후행 선택자*/
+            color: yellowgreen;
+        }      
+
+    </style>
+
+</head>
+<body>
+    <div>
+    <strong>연수생 수칙</strong>
+    <ol>
+        <li>지각하지 않기</li>
+        <li id="rule">결석하지 않기</li>
+        <span>(불가피할 땐 꼭 담당연구원에게 미리 말하기)</span>
+        <li>복습하기</li>
+    </ol>
+</div>
+</body>
+</html>

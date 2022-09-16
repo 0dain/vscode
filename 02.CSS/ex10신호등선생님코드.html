@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>신호등 선생님</title>
+
+    <style>
+        #black{
+            width: 120px;
+            height: 360px;
+            background-color: black;
+            border-radius: 20px;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        /* 마진은 중첩되지 않음, 여러 마진 값들 중에서 제일 큰 마진 값만 적용됨 */
+        .circle{
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+        }
+
+        #red{
+            background-color: red;
+        }
+
+        #yellow{
+            background-color: yellow;
+            margin-top: 15px;
+            /* 또는 green에 margin-top안주고 여기에 margin-bottom줘도 됨 */
+        }
+
+        #green{
+            background-color: green;
+            margin-top: 15px;
+        }
+    </style>
+
+</head>
+<body>
+    <div id="black">
+        <div class="circle" id="red"></div>
+        <div class="circle" id="yellow"></div>
+        <div class="circle" id="green"></div>
+    </div>
+    
+</body>
+</html>

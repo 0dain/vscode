@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS-마진,div</title>
+
+    <style>
+        /* 위치가 이동된 것처럼 보임 */
+        body{
+            margin: 0px;
+        }
+        div{
+            width: 100px;
+            height: 100px;
+            /* 상황을 봐서 공통적인 부분은 묶어주자~ */
+
+            border-top-left-radius: 50px;
+            border-bottom-right-radius: 50px;
+        }
+        #redBox{
+            background-color: red;
+
+            margin-left: 0px;
+        }
+        #blueBox{
+            background-color: blue;
+
+            margin-left: 100px;
+        }
+        #greenBox{
+            background-color: green;
+
+            margin-left: 200px;
+        }
+        #grayBox{
+            background-color: gray;
+
+            margin-left: 300px;
+        }
+    </style>
+</head>
+<body>
+    <div id="redBox"></div>
+    <!-- div#*3: 단축키 -->
+    <div id="blueBox"></div>
+    <div id="greenBox"></div>
+    <div id="grayBox"></div>
+</body>
+</html>
