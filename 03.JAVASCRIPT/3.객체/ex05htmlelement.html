@@ -42,6 +42,7 @@
             //innerHTML: 태그 사이에 있는 모든 요소 가지고 오기
             //          모든 요소들이란? 텍스트+태그
             console.log(p1.innerHTML);
+
             //innerText: 태그 사이에 있는 모든 텍스트 요소 가지고 오기 => 태그는 안 가져오고 텍스트만 가져옴!
             console.log(p1.innerText);
         }
@@ -62,11 +63,12 @@
             console.log(c1);
             for(var i=0;i<c1.length;i++){
                 //안의 요소 값을 바꾸고 싶을 때
-                // c1[i].innerText="<u>클래스로 접근!</u>";
+                //c1[i].innerText="<u>클래스로 접근!</u>";
                 //innerText는 텍스트 요소만 추가하기 때문에 태그를 문자로 인식해서 텍스트로 넣어버림
 
-                //태그를 적용하고 싶을 땐 innerHTML로 쓰기~
+                //태그를 적용해서 넣고 싶을 땐 innerHTML로 쓰기~
                 c1[i].innerHTML="<u>클래스로 접근~</u>"
+                //<u></u>: 밑줄 그어 주는 태그
             }
         }
 
