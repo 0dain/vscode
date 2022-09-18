@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>질문풀어주기</title>
+</head>
+<body>
+  <form action="#" method="get">
+    <input type="number" id="score">
+    <button onclick="cal()">계산</button>
+  </form>
+
+  <script>
+    // let score=document.getElementById('score');
+    // 변수 선언 안 하고 score.value하면 input에 입력한 값을 가져오게 됨!
+    // form 태그 안에 있으니까 값을 가져오고 싶으면 .value해줘야 함~
+    function cal(){
+      if(score.value>=90){
+        console.log("A")
+      }else if(score.value>=80){
+        console.log("B")
+      }else if(score.value>=70){
+        console.log("C")
+      }else if(score.value>=60){
+        console.log("D")
+      }else{
+        console.log("F")
+      }
+    }
+
+  </script>  
+</body>
+</html>
