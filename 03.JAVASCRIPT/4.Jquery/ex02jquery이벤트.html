@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CDN 경로, 수정 불가 -->
+    <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+    <title>제이쿼리 CDN형식</title>
+</head>
+<body>
+    <p>로그인 폼을 작성해봅시다</p>
+    <button id="btnP">p태그 다루기</button>
+    <div id="div1">
+        <h1 class="h">로그인폼</h1>
+        ID : <input type="text" name="id"><br>
+        PW : <input type="text" name="pw">
+    </div>
+    <p class="h"></p>
+    <button id="btnDiv">div태그 다루기</button>
+    <button id="btnH">클래스가 h인 태그 다루기</button>
+    <button id="addAttr">id input 속성 추가</button>
+    <button id="getId_Pw">input태그 다루기</button>
+
+    <script>
+        //선택자를 작성할 떈 꼭 "" 또는 '' 안에 써줘야 함
+        $("#btnP").click(function(){//클릭 이벤트 추가
+            let p=$("p").text(); //text == innerText
+            //태그를 가지고 오고 싶다면?!
+            //let p=$("p").html(); 로 써주면 됨 html==innerHTML
+            // alert(p)
+
+            $("p").html("<i>p태그</i> 텍스트 바꾸기");//태그까지 같이 넣고 싶을 때
+        });
+
+        $("#btnDiv").click(function(){
+            $("#div1").css("background-color","pink")                
+        });
+
+        $("#btnH").click(function(){
+            $(".h").text("클래스가 h인 태그");
+            //$("#btnH").text("바꾸기~!");
+            //this: 이벤트가 발생된 요소인 나 자신을 지칭 할 때 사용
+            $(this).text("바꾸기~!");
+        });
+
+        $("#addAttr").click(function(){
+            $("input[name=id]").attr("placeholder","ID를 작성하시오");
+            //name이 id인 input태그만 선택하겠다는 뜻
+            //attr: 요소의 속성에 접근
+            //attr(): 안에 두 개를 쓰면 속성을 변경하겠다는 뜻 /  하나만 쓰면 해당 속성을 알려달라는 뜻
+            //attr(속성이름, 속성 값): 속성을 추가(변경)
+            //attr(속성이름): 속성 값을 가지고 오는 것
+
+            alert($("input[name=id]").attr("type"));
+        });
+    </script>
+</body>
+</html>

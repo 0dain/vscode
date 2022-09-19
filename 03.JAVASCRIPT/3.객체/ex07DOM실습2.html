@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>증감 버튼</title>
+</head>
+<body>
+    <span id="span1">0</span>
+    <br>
+    <button onclick="plus()">+1증가</button>
+    <button onclick="minus()">-1감소</button>
+
+    <script>
+        let span=document.getElementById('span1')
+        let spanNum=Number(span.innerText)//0, 선생님 코드
+
+        function plus(){
+            // span1.innerText++; //내 코드
+            spanNum++;//spanNum의 숫자만 1증가
+            span.innerText=spanNum;//증가한 spanNum 넘겨주기
+
+            //span.innerText=spanNum++; 로 하면 일단 spanNum이 0을 가지고 있기 때문에 그 0을 먼저 출력한 다음에 +1을 해줌
+            //한 줄로 표현하고 싶으면 span.innerText=++spanNum; 이렇게 하면 됨 싫으면 위에처럼 따로 코드를 적으면 됨~
+        }
+
+        function minus(){
+
+            if(spanNum>0){
+                spanNum--;
+                span.innerText=spanNum;
+            }
+            // if(span1.innerText>0){
+            //     span1.innerText--;
+            // } 내 코드            
+        }
+    </script>
+
+</body>
+</html>

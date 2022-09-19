@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM실습4</title>
+</head>
+<body>
+    <img src="../img/핑구1.gif" onmouseover="img1()" onmouseout="img2()">
+    <!-- onmouseover: 마우스 올렸을 때
+         onmouseout: 마우스 내렸을 때-->
+
+    <script>
+        let img=document.getElementsByTagName("img");
+        // 소괄호에 내가 지정하고 싶은 태그 이름 쓰기
+        console.log(img)//유사배열로 반환되기 때문에 바꾸고 싶은 사진이 있는 인덱스에 접근해야 함 => 지금은 0번 인덱스에 수정하고 싶은 사진이 들어가 있음
+
+        function img1(){
+            //유사 배열을 다룰 때에는 인덱스 번호를 지정해서 실제 요소까지 접근을 해야 함
+            img[0].src="../img/핑구2.gif" //0번 인덱스의 src를 바꿔준다
+
+        }
+
+        function img2(){
+            img[0].setAttribute("src","../img/핑구1.gif");//속성을 설정하는 것
+            // img[0].setAttribute("수정하고 싶은 속성 이름","어떤 값으로 수정하고 싶은지에 대해서 적음");//속성을 설정하는 것
+        }
+    </script>
+</body>
+</html>

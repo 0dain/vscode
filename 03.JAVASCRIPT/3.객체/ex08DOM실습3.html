@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM실습3</title>
+</head>
+<body>
+    <h2>오늘 스케줄</h2>
+    <ul>
+        <li>1~2교시 : html/css 시험</li>
+        <li>3~4교시 : javascript 수업</li>
+        <li>
+            <h2>오늘 점심은 무엇?</h2>
+            <ol>
+                <li>행복한 담벼락 - 크림뚝불</li>
+                <li>삼류라멘 - 바질라멘</li>
+                <li>시바카레 - 새우크림카레</li>
+            </ol>
+        </li>
+        <li>5~8교시 : jsp/servlet 수업</li>
+    </ul>
+
+    <script>
+        //document.querySelector: 선택자 선택하는 명령어
+        // 현재 ol>li가 여러개인 상태
+        //  .querySelector: 선택한 요소가 여러 개라면 첫 번째만 선택이 됨
+        let li=document.querySelector("ol>li");
+        li.style.color="green";
+        //li.style.color: 현재 컬러 가져오기
+        //스타일 속성 사용하기: .style.color
+        //바꾸고 싶다면? => li.style.color="바꾸고 싶은 컬러명"
+
+        // 전부 다 바꾸고 싶다면?!(요소가 여러 개일 때, 여러 개의 요소를 한 번에 가지고 올 수 있음)
+        let li2=document.querySelectorAll("ol>li");
+        //NodeList: 유사배열(인덱스, length(길이))
+
+        console.log(li);
+        console.log(li2);//배열과 유사한 형태로 가지고 오게 됨 => 인덱스 번호를 가져옴
+
+        for(var i=0;i<li2.length;i++){
+            li2[i].style.color="green";
+        }
+    </script>
+</body>
+</html>
