@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flex</title>
+
+    <style>
+        .container{
+            background-color: black;
+            /* 세로축 기준으로 정렬하려면 부모 요소에 height 값을 지정해줘야 함!  */
+            height: 400px;
+
+            /* container에게 적용하는 속성 */
+
+            /* 1. display: flex 
+            flexbox의 시작! */
+            display: flex;
+
+            /* 2. flex-direction: 방향 설정
+            row: 가로(기본값) / column: 세로 
+            flex-direction: row, column은 축을 변경하는 것! 여기서 지정한 축의 방향을 보고 밑에 정렬은 반대 방향으로 써줘야 함*/
+
+            flex-direction: row;
+            /* flex-direction: column; */
+
+            /* 3. justify-content: 가로 축을 기준으로 정렬(flex-direction: row일 때)
+            - center: 아이템들을 가로 가운데 정렬
+            - flex-start, flex-end: 각각 끝으로 정렬
+            - space- between, space-evenly, space-around: 아이템들 사이에 간격을 두고 정렬 */
+            justify-content: space-evenly;
+
+            /* 4. alian-items: 세로 축을 기준으로 정렬(flex-direction: column일 때)
+            - center: 가운데 정렬
+            -  flex-start, flex-end: 각각 끝으로 정렬*/
+            align-items: center;
+        }
+
+        .item{
+            background-color: yellow;
+            width: 100px;
+            height: 100px;
+            margin: 10px;
+
+            /* item에 적용하는 속성 */
+            /* flex-grow: 1; */
+            /* grow: 아이템의 너비를 설정(비율로 설정됨) */
+        }
+
+        #item1{
+            flex-grow: 1;
+        }
+        #item2{
+            flex-grow: 2;
+        }
+        #item3{
+            flex-grow: 1;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="container">
+        <div class="item" id="item1"></div>
+        <div class="item" id="item2"></div>
+        <div class="item" id="item3"></div>
+    </div>
+</body>
+</html>

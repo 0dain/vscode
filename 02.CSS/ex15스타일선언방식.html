@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>스타일 선언 방식</title>
+    <style>
+        #innerStyle{
+            color: lightpink;
+        }
+    </style>
+
+    <!-- 외부 스타일 선언 방식 
+        <link> 태그
+            - rel: html문서와의 관계
+            - href: 경로 
+    -->
+    <!-- <link rel="무슨 관계야?" href="경로가 어딘데?"> -->
+    <link rel="stylesheet" href="./ex15외부.css">
+</head>
+<body>
+    <p style="color: lightskyblue;">인라인 스타일</p>
+
+    <p id="innerStyle">내부 스타일</p>
+
+    <p id="outerStyle">외부 스타일</p>
+</body>
+</html>

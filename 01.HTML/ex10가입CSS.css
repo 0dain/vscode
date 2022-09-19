@@ -1,0 +1,21 @@
+
+table{
+    width: 400px;
+}
+
+.gray{
+ background-color:gray; height: 50px;
+}
+
+.whitesmoke{
+    height: 35px; background-color:whitesmoke;
+}
+
+.whitesmoke>.right{
+    text-align: right;
+}
+
+
+.right{
+    text-align: left;
+}
