@@ -21,6 +21,8 @@
         // 내 코드
         // $(document).on("click","#like",function(){
         //     let num=Number($("span").text());
+        // 이렇게 바로 "span"이라고 적으면 코드가 적을 땐 괜찮지만 여러 개의 코드가 있을 땐 span코드가 겹칠 수 있기 때문에 계층구조를 이용해서 지정해주는 것이 안전함!
+        //     let num=Number($("#like+span").text());
         //     num++;
         //     $("span").text(num);
 
@@ -30,20 +32,22 @@
         // });
 
         // $(document).on("click",".unlike",function(){
-        //     $("span").text("0");
+        //     let num=Number($("#unlike+span").text());
+        //     $("#unlike").text(num-1);
         //     $("#like").text("좋아요");
         //     $("#like").removeClass("unlike");
         // });
 
+
         // 선생님 코드
 
-        //밑에서 아이디가 바뀌면 얘 아이디는 사라진 게 되어서 작동되지 않음 on으로 바꿔줘야 함
+        //버튼을 눌러 실행을 하면서 아이디가 dislike로 바뀌면 여기서 지칭하던 like가 사라진 게 되기때문에 나중에 다시 실행하려고 눌러도 작동되지 않음 on으로 바꿔줘야 함
         // $("#like").click(function(){
         //    let like=Number($("#like+span").text());
         //    $("#like+span").text(like+1);//+1한 값을 다시 태그 사이에 텍스트로 설정
         //    $(this).text("좋아요 취소");
         //    //-> 좋아요 버튼(#like) -> 좋아요 취소 버튼(#dislike)
-        //    //attr(): 아이디 속성 추가하기
+        //    //attr(): 속성 추가하기 -> 아이디 속성도 추가할 수 있음
         //    $(this).attr("id","dislike");
         // });
 
@@ -52,27 +56,27 @@
            $("#like+span").text(like+1);//+1한 값을 다시 태그 사이에 텍스트로 설정
            $(this).text("좋아요 취소");
            //-> 좋아요 버튼(#like) -> 좋아요 취소 버튼(#dislike)
-           //attr(): 아이디 속성 추가하기
+           //attr(): 속성 추가하기 -> 아이디 속성도 추가할 수 있음
            $(this).attr("id","dislike");
         });
 
-        // .click은 정적 이벤트 부여이기 때문에 초반에 설정된 like라는 아이디에만 반응함
+        // .click은 정적 이벤트 부여이기 때문에 초반에 설정된 like라는 아이디에만 반응함 위에 .click()에서 아이디를 dislike로 바꿨다고 해도 초기 이름이 아니기 때문에 적용이 되지 않음
         // $("#dislike").click(function(){
         //    let like=Number($("#dislike+span").text());
         //    $("#dislike+span").text(like-1);//-1한 값을 다시 태그 사이에 텍스트로 설정
         //    $(this).text("좋아요 취소");
         //    //-> 좋아요 취소 버튼(#dislike) -> 좋아요 버튼(#like) 
-        //    //attr(): 아이디 속성 추가하기
+        //    //attr(): 속성 추가하기 -> 아이디 속성도 추가할 수 있음
         //    $(this).attr("id","like");
         // });
-        //그래서 .on 으로 바꿈!
+        //동적인 변화가 있으려면 .on 으로 해줘야 함!
 
         $(document).on("click","#dislike",function(){//
            let like=Number($("#dislike+span").text());
            $("#dislike+span").text(like-1);//-1한 값을 다시 태그 사이에 텍스트로 설정
            $(this).text("좋아요");
            //-> 좋아요 취소 버튼(#dislike) -> 좋아요 버튼(#like) 
-           //attr(): 아이디 속성 추가하기
+           //attr(): 속성 추가하기 -> 아이디 속성도 추가할 수 있음
            $(this).attr("id","like");
         });
 
