@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+    <title>비동기 통신 실습(영화)</title>
+</head>
+<body>
+    <button onclick="req()">요청</button>
+
+    <script>
+        function req(){
+            $.ajax({
+                //필요한 속성 정의(여러 개의 속성을 넣을 때엔 반점써서 나열하기!)
+
+                //어디로 요청할 건지!
+                url : "http://kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key=f5eef3421c602c6cb7ea224104795888&targetDt=20220901",
+                
+                //어떻게 요청할 건지(요청방식-> get/post/put/delete)
+                //type 속성은 기본값이 get임!
+                type : "get",
+                
+                //success: 요청-응답에 성공했을 때 수행할 작업
+                // 성공했을 때 어떤 데이터를 넘겨줄건지!
+                success : function(res){//매개변수 res안에 서버에 요청한 값을 담게 됨!
+                    console.log(res);
+                }, 
+                //error: 요청-응답 실패했을 때 수행할 작업
+                error : function(){
+                    alert("실패");
+                }
+            });
+        }
+    </script>
+
+
+</body>
+</html>

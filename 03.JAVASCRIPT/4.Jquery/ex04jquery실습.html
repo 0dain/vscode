@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+    <title>좋아요, 댓글 실습</title>
+</head>
+<body>
+    <button id='like'>좋아요</button><span>0</span>
+    <br>
+    <input type="text"><button class='writeCom'>댓글작성</button>
+    <br>
+    <div id="com">
+        <p>첫댓글<button class='removeCom'>삭제</button></p>
+    </div>
+
+    <script>
+        //좋아요 기능
+        // 내 코드
+        // $(document).on("click","#like",function(){
+        //     let num=Number($("span").text());
+        //     num++;
+        //     $("span").text(num);
+
+        // // $("span").text("1");
+        //    $("#like").text("좋아요 취소");
+        //    $("#like").addClass("unlike");
+        // });
+
+        // $(document).on("click",".unlike",function(){
+        //     $("span").text("0");
+        //     $("#like").text("좋아요");
+        //     $("#like").removeClass("unlike");
+        // });
+
+        // 선생님 코드
+
+        //밑에서 아이디가 바뀌면 얘 아이디는 사라진 게 되어서 작동되지 않음 on으로 바꿔줘야 함
+        // $("#like").click(function(){
+        //    let like=Number($("#like+span").text());
+        //    $("#like+span").text(like+1);//+1한 값을 다시 태그 사이에 텍스트로 설정
+        //    $(this).text("좋아요 취소");
+        //    //-> 좋아요 버튼(#like) -> 좋아요 취소 버튼(#dislike)
+        //    //attr(): 아이디 속성 추가하기
+        //    $(this).attr("id","dislike");
+        // });
+
+        $(document).on("click","#like",function(){
+           let like=Number($("#like+span").text());
+           $("#like+span").text(like+1);//+1한 값을 다시 태그 사이에 텍스트로 설정
+           $(this).text("좋아요 취소");
+           //-> 좋아요 버튼(#like) -> 좋아요 취소 버튼(#dislike)
+           //attr(): 아이디 속성 추가하기
+           $(this).attr("id","dislike");
+        });
+
+        // .click은 정적 이벤트 부여이기 때문에 초반에 설정된 like라는 아이디에만 반응함
+        // $("#dislike").click(function(){
+        //    let like=Number($("#dislike+span").text());
+        //    $("#dislike+span").text(like-1);//-1한 값을 다시 태그 사이에 텍스트로 설정
+        //    $(this).text("좋아요 취소");
+        //    //-> 좋아요 취소 버튼(#dislike) -> 좋아요 버튼(#like) 
+        //    //attr(): 아이디 속성 추가하기
+        //    $(this).attr("id","like");
+        // });
+        //그래서 .on 으로 바꿈!
+
+        $(document).on("click","#dislike",function(){//
+           let like=Number($("#dislike+span").text());
+           $("#dislike+span").text(like-1);//-1한 값을 다시 태그 사이에 텍스트로 설정
+           $(this).text("좋아요");
+           //-> 좋아요 취소 버튼(#dislike) -> 좋아요 버튼(#like) 
+           //attr(): 아이디 속성 추가하기
+           $(this).attr("id","like");
+        });
+
+        // 근데 이렇게 하면 또~~ 원래 상태로 되돌아가는 것이 안 됨..! 왜냐하면 on으로 아이디 이름이 dislike로 바뀌면서 원래 있던
+        // like라는 이름은 사라지게 된거라서 .click이 인식을 하시 못함!! 그래서 위에서 .click이 인식하지 못함 그래서 위에도 on으로 바꿔줘야 함~
+    
+
+        //댓글 추가, 삭제 기능
+
+        //내 코드
+        // $(document).on("click",".writeCom",function(){
+        //     $("div").prepend("<p>"+$('input[type=text]').val()+"<button class='removeCom'>삭제</button></p>");
+        // });
+
+        // $(document).on("click",".removeCom",function(){
+        //     //$(".removeCom").parent().remove(); -> 이렇게하면 클래스로 지정된 전체 p태그가 삭제됨@! 
+        //     $(this).parent().remove();
+        // });
+
+
+        // 선생님 코드
+        $(".writeCom").click(function(){
+            let com=$("input[type=text]").val();
+            $("#com").prepend("<p>"+com+"<button class='removeCom'>삭제</button></p>");
+            //댓글 입력 후 입력창 비워주기
+            $("input[type=text]").val("");
+        });
+
+        $(document).on("click",".removeCom",function(){
+            //this: 현재 사용자가 클릭한 버튼 기준
+            $(this).parent().remove();
+        });
+    </script>
+</body>
+</html>

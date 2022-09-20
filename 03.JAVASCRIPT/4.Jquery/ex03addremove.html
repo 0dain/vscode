@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+    <title>요소 추가 및 삭제</title>
+</head>
+<body>
+
+    <div>
+        <img src="./img/pg1.gif">
+    </div>
+
+    <button id="btn1">div내부 앞에 추가</button>
+    <button id="btn2">div내부 뒤에 추가</button>
+    <button id="btn3">div외부 앞에 추가</button>
+    <button id="btn4">div외부 뒤에 추가</button>
+    <button id="btn5">img 1개 삭제</button>
+    <button id="btn6">div 안 비우기</button>
+    <button id="btn7">class 추가</button>
+    <button id="btn8">class 삭제</button>
+    <button id="btn9">부모요소 접근</button>
+
+    <script>
+        //.click: 최초에 html 페이지를 로딩할 때 선언되었던 요소에만 이벤트를 추가(이벤트 바인딩)하고 
+        //더이상 동적으로 추가(바인딩)하지 않음 -> 정적 바인딩
+
+        //on("click"): 동적으로 추가된 요소에 이벤트를 추가할 수 있음
+
+        //$(이벤트를 부여할 요소의 부모(정적인 요소여야 함!)를 적어주기)
+        $(document).on("click","#btn1",function(){
+            // 내가 수행하고 싶은 거 적기
+            $("div").prepend("<img src='./img/pg2.gif'>"); //prepend(): 내부 앞에 요소 추가하기
+        });
+
+        $(document).on("click","#btn2",function(){
+            $("div").append('<img src=\'img/pg3.gif\'>');//append(): 내부 뒤에 요소 추가하기
+        });
+
+        $(document).on("click","#btn3",function(){
+            $("div").before("<img src='./img/pg3.gif'>");//before(): 외부 앞에 요소 추가
+        });
+
+        $(document).on("click","#btn4",function(){
+            $("div").after("<img class='i1' src='./img/pg2.gif'>");//after(): 외부 아래에 요소 추가
+        });
+
+        $(document).on("click","#btn5",function(){
+            $(".i1").remove();//remove(): 요소 삭제
+        });
+
+        $(document).on("click","#btn6",function(){
+            $("div").empty();//empty(): 전체 삭제
+        });
+
+        $(document).on("click","#btn7",function(){
+            $("img").addClass("i1");//addClass(): 클래스 속성 추가
+        });
+
+        $(document).on("click","#btn8",function(){
+            $("img").removeClass("i1");//removeClass():클래스 속성 삭제
+        })
+
+        $(document).on("click","#btn9",function(){
+            $("img").parent().css("background-color", "pink");//$("img").parent(): 내가 선택한 요소의 부모를 찾아감
+        });
+    </script>
+</body>
+</html>

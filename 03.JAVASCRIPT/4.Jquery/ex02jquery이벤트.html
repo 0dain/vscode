@@ -23,11 +23,12 @@
     <button id="getId_Pw">input태그 다루기</button>
 
     <script>
-        //선택자를 작성할 떈 꼭 "" 또는 '' 안에 써줘야 함
+        //선택자를 작성할 땐 꼭 "" 또는 '' 안에 써줘야 함
         $("#btnP").click(function(){//클릭 이벤트 추가
             let p=$("p").text(); //text == innerText
             //태그를 가지고 오고 싶다면?!
             //let p=$("p").html(); 로 써주면 됨 html==innerHTML
+
             // alert(p)
 
             $("p").html("<i>p태그</i> 텍스트 바꾸기");//태그까지 같이 넣고 싶을 때
@@ -47,12 +48,25 @@
         $("#addAttr").click(function(){
             $("input[name=id]").attr("placeholder","ID를 작성하시오");
             //name이 id인 input태그만 선택하겠다는 뜻
+
             //attr: 요소의 속성에 접근
             //attr(): 안에 두 개를 쓰면 속성을 변경하겠다는 뜻 /  하나만 쓰면 해당 속성을 알려달라는 뜻
             //attr(속성이름, 속성 값): 속성을 추가(변경)
             //attr(속성이름): 속성 값을 가지고 오는 것
 
             alert($("input[name=id]").attr("type"));
+        });
+
+        $("#getId_Pw").click(function(){
+            // input태그의 값을 가져올 땐 .val를 사용!(사용자가 입력한 값을 가져올 때 사용)
+            // val()==value
+            // 값 가져오기
+            let id=$("input[name=id]").val();
+            let pw=$("input[name=pw]").val();
+            alert("아이디: "+id+" 비밀번호: "+pw);
+
+            // 값 설정하기
+            $("input[name=pw]").val("비밀번호");
         });
     </script>
 </body>
