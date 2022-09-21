@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>바닐라 JS</title>
+</head>
+<body>
+    <div id="movieTB"></div>
+    <button onclick="req()">요청</button>
+
+    <script>
+        //요청 주소 정의
+        const url = "http://kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key=f5eef3421c602c6cb7ea224104795888&targetDt=20220901"
+        //비동기 통신 : async/await 문법 사용(ES8)
+        //async : 비동기 함수 정의 > 결과값 : promise 형태로 반환
+        //promise : 비동기 작업 결과 단위 (비동기 처리 상태, 데이터)
+        async function req(){
+            //await : async 같이 쓰임, promise(비동기 처리) 끝날때까지 기다려라!
+            //fetch API : 외부 라이브러리 추가 없이 브라우저 내장
+            //then() : 비동기 처리가 끝난 다음 처리할 일 정의
+            //첫번째 then() : promise를 반환 (data -response data)
+            //두번째 then() : promise 내부에 promiseResult (movie - 영화데이터)
+            await fetch(url).then((data)=>data.json()).then((movie)=>{
+                // 응답받은 데이터를 테이블 형식으로 #movieTB div영역에 출력
+                // console.log(movie)
+                let movieList=movie.boxOfficeResult.dailyBoxOfficeList;
+                    let str=`<table border='1px solid black' id='table'>`;
+                    str +=`<tr>`;
+                    str +=`<th>순위</th>`;
+                    str +=`<th>영화제목</th>`;
+                    str +=`<th>개봉일자</th>`;
+                    str +=`</tr>`;
+                    for(var i=0;i<movieList.length;i++){ //배열형태로 담겨있기 때문에 for문으로 원하는 데이터 가져오기!
+                       str+=`<tr>`;
+                       str+=`<td>${movieList[i].rank}</td>`;//순위
+                       str+=`<td>${movieList[i].movieNm}</td>`;//이름
+                       str+=`<td>${movieList[i].openDt}</td>`;//개봉일
+                       str+=`</tr>`;
+                    }
+                    str+=`</table>`;
+                    document.getElementById("movieTB").innerHTML=str;
+            })
+        }
+        
+
+              
+
+    </script>
+</body>
+</html>

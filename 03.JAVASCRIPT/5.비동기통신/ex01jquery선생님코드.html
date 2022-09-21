@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
-    <title>비동기 통신 실습(영화)</title>
+    <title>비동기 통신 실습(영화)-선생님 코드</title>
 </head>
 <body>
     <div id="movieT"></div>
@@ -30,26 +30,23 @@
                     // console.log(res);
                     // 콘솔창 말고 브라우저에 테이블 형태로 출력하고 싶다면?! -> console.log(res.boxOfficeResult.dailyBoxOfficeList); -> 경로를 잘 찾아가는지 콘솔에 찍어보기!
                     let movieList=res.boxOfficeResult.dailyBoxOfficeList; 
-                
-                    $("#movieT").prepend("<table border='1px solid black' id='table'> <tr><th>순위</th><th>영화제목</th><th>개봉일자</th></tr>");
-                    for(var i=0;i<movieList.length;i++){ //배열형태로 담겨있기 때문에 for문으로 원하는 데이터 가져오기!
-                       let mRank=movieList[i].rank;//순위
-                       let mNm=movieList[i].movieNm;//이름
-                       let mDt=movieList[i].openDt;//개봉일
-                       $("#table").append("<tr align=center><td>"+mRank+"</td><td>"+mNm+"</td><td>"+mDt+"</td></tr>");
-                    }
-                    $("#movieT").prepend("</table>");
-
-                    // $("#movieT").prepend("<table border='1px solid black'> <tr><th>순위</th><th>영화제목</th><th>개봉일자</th></tr>")
-                    // for(var i=0;i<movieList.length;i++){ //배열형태로 담겨있기 때문에 for문으로 원하는 데이터 가져오기!
-                    //    mRank=movieList[i].rank;//순위
-                    //    mNm=movieList[i].movieNm;//이름
-                    //    mDt=movieList[i].openDt;//개봉일
-                    //    $("#movieT").prepend("<tr><td>"+mRank+"</td><td>"+mNm+"</td><td>"+mDt+"</td></tr>");
-                    // }
-                    // $("#movieT").prepend("</table>");
                     
+                    let str=`<table border='1px solid black' id='table'>`;
+                    str +=`<tr>`;
+                    str +=`<th>순위</th>`;
+                    str +=`<th>영화제목</th>`;
+                    str +=`<th>개봉일자</th>`;
+                    str+=`</tr>`;
+                    for(var i=0;i<movieList.length;i++){ //배열형태로 담겨있기 때문에 for문으로 원하는 데이터 가져오기!
+                       str+=`<tr>`;
+                       str+=`<td>${movieList[i].rank}</td>`;//순위
+                       str+=`<td>${movieList[i].movieNm}</td>`;//이름
+                       str+=`<td>${movieList[i].openDt}</td>`;//개봉일
+                       str+=`</tr>`;
+                    }
+                    str+=`</table>`;
 
+                    $("#movieT").html(str);
                 }, 
                 //error: 요청-응답 실패했을 때 수행할 작업
                 error : function(){
