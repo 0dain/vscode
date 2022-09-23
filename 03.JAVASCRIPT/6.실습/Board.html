@@ -191,6 +191,7 @@
         src="//dapi.kakao.com/v2/maps/sdk.js?appkey=715048a096eb2835931347a13381469e&libraries=services"></script>
     <script>
         // 마커를 클릭하면 장소명을 표출할 인포윈도우 입니다
+        // InfoWindow: 마커 위에 상호명 띄워주는 메서드
         var infowindow = new kakao.maps.InfoWindow({ zIndex: 1 });
 
         var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
@@ -206,9 +207,9 @@
         var ps = new kakao.maps.services.Places();
 
         // 키워드로 장소를 검색합니다
-        ps.keywordSearch('이태원 맛집', placesSearchCB);
+        ps.keywordSearch('동명동 포카포카', placesSearchCB);
 
-        // 키워드 검색 완료 시 호출되는 콜백함수 입니다
+        // placesSearchCB: 키워드 검색 완료 시 호출되는 콜백함수 입니다
         function placesSearchCB(data, status, pagination) {
             if (status === kakao.maps.services.Status.OK) {
 
@@ -218,6 +219,7 @@
 
                 for (var i = 0; i < data.length; i++) {
                     displayMarker(data[i]);
+                    // LatLng: 위도경도 찾아주는 기능
                     bounds.extend(new kakao.maps.LatLng(data[i].y, data[i].x));
                 }
 
@@ -231,18 +233,26 @@
 
             // 마커를 생성하고 지도에 표시합니다
             var marker = new kakao.maps.Marker({
-                map: map,
-                position: new kakao.maps.LatLng(place.y, place.x)
+                map: map, //어느 지도에 표시를 할 건지
+                position: new kakao.maps.LatLng(place.y, place.x) //위치를 표시하면서 마커 표시
             });
 
-            // 마커에 클릭이벤트를 등록합니다
-            kakao.maps.event.addListener(marker, 'click', function () {
+            // 마커에 마우스를 올렸을 때 이벤트를 등록합니다
+            kakao.maps.event.addListener(marker, 'mouseover', function () {
                 // 마커를 클릭하면 장소명이 인포윈도우에 표출됩니다
-                infowindow.setContent('<div style="padding:5px;font-size:12px;">' + place.place_name + '</div>');
-                infowindow.open(map, marker);
+                infowindow.setContent('<div style="padding:5px;font-size:12px;"><img src="./asset/img/포카포카.jpg" width="150px" height="150px"></div>');
+                infowindow.open(map, marker);//open: 지도에 실제 보여지게 하는 기능
+            });
+
+            //마커 위에서 마우스를 내렸을 때 이벤트
+            kakao.maps.event.addListener(marker, 'mouseout', function () {
+                // 마커를 클릭하면 장소명이 인포윈도우에 표출됩니다
+                // infowindow.setContent('<div style="padding:5px;font-size:12px;"><img src="./asset/img/포카포카.jpg" width="150px" height="150px"></div>');
+                // infowindow.open(map, marker);//open: 지도에 실제 보여지게 하는 기능
+                infowindow.close();//close: 닫는 기능
             });
         }
+
     </script>
 </body>
-
 </html>
