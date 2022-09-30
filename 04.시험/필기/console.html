@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="t1T">웹</h1>
+    <p class="pT">web이해</p>
+    <p class="pT">홈페이지</p>
+
+    <ul>
+        <li class="c">h</li>
+        <li class="c">c</li>
+        <li class="c">j</li>
+    </ul>
+
+    <script>
+        //1. 
+    let Q1=document.getElementById("t1T").innerText;
+    console.log(Q1);
+
+    //2
+    let q2=document.getElementsByClassName('pT')[1].innerText;
+    console.log(q2);
+
+    //3
+    for(let i=0;i<document.getElementsByTagName('li').length;i++){
+        let q3=document.getElementsByTagName('li')[i].innerText
+        console.log(q3);
+    }
+
+    </script>
+</body>
+</html>
