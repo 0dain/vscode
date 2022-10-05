@@ -5,9 +5,31 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <!-- head에 넣으면 html parsing 작업을 하다가 script를 만났을 때 html parsing을 멈추고 script 파일을 다운 받고 나서 다시 html parsing을 함
+    만약 script의 용량이 크다면 로딩 시간이 길어지기 때문에 별로 좋은 방법은 아님!-->
     <script src="main.js"></script>
+
+    <!-- <script asyn src="main.js"></script> -->
+    <!-- head 안에 script를 넣는데 asyn 속성을 넣는다면? 
+    asyn: boolen 타입
+    html parsing 하다가 script를 만나면 병렬로 같이 다운을 하다가 script 파일 다운이 완료되면 html parsing을 잠시 멈추고 script를 실행한 후에 다시 html parsing 작업을 시작함
+    
+    body에 넣을 때보다는 다운로드 받는 시간을 절약할 순 있음 하지만 html이 다 parsing되기 전에 실행이 되기 때문에 쿼리셀렉터를 이용해서 DOM 요소를 조작한다고 한다고 하면 html이 전부 다 불러와진 것이 아니기 때문에
+    제대로 동작하지 않을 수 있음 
+    script를 실행하기 위해 parsing작업을 잠시 멈추기 때문에 사용자 입장에서는 여전히 기다리는 시간이 생기게 됨-->
+
+    <!-- <script defer src="main.js"></script> -->
+    <!-- head 안 script 속성에 defer를 넣는다면?!
+    html parsing을 하다가 script를 만나면 html을 parsing하면서 script 파일을 같이 다운을 받게 함 
+    그리고 마지막에 parsing이 끝난 다음에 script를 실행할 수 있도록 함
+    사용자에게 parsing이 끝난 페이지를 보여준 다음에 script를 실행하게 함 
+    내가 원하는 순서로 script를 실행할 수 있음
+    -->
 </head>
 <body>
-    
+    <div></div>
+    <!-- <script src="main.js"></script> -->
+    <!-- body 태그 마지막 줄에 script 넣기: html parsing이 다 된 후에 script를 만나서 페이지 컨텐츠를 볼 수 있지만 script의 동적 액션이 추가된 정상적인 페이지를
+         보기 위해서는 script가 다운이 되고 적용이 될 때까지 더 기다려야 하는 단점이 있음 -->
 </body>
 </html>
