@@ -32,12 +32,24 @@ var age;
 }
 console.log(age);//콘솔에 출력됨
 
-//3. Constants(상수)
+//3. Constant(상수), r(read only)
+
   //보안상의 이유로 값이 바뀌면 안 될 때
   //여러 개의 스레드가 동시에 변수에 접근해서 값을 변경할 수 있는데 이것을 방지해주고자 할 때
   //앞으로 변경되어야 할 좋은 이유가 없을 때, 내가 나중에 코드를 변경하거나 다른 개발자가 코드를 만질 때 실수를 방지할 수 있음
 const daysInWeek=7;
 const maxNumber=5;
+
+//Immutable data types: primitive types, frozen objects(i.e. object.freeze())
+  //변경할 수 없는 데이터 타입
+//Mutable data types: all objects by default are mutable is JS
+  //변경이 가능한 데이터 타입
+
+//상수를 언제 쓰는가
+   //보안상의 이유로 값이 바뀌면 안 될 때
+   //여러 개의 스레드가 동시에 변수에 접근해서 값을 변경할 수 있는데 이것을 방지해주고자 할 때
+   //앞으로 변경되어야 할 좋은 이유가 없을 때, 내가 나중에 코드를 변경하거나 다른 개발자가 코드를 만질 때 실수를 방지할 수 있음
+
 
 //4. Variable types
 //primitive, single item: number, string, boolean, null, undefiedn, symbol
@@ -48,7 +60,10 @@ const size=17.1;
 console.log(`value: ${count}, type: ${typeof count}`);
 console.log(`value: ${size}, type: ${typeof size}`);
 
-//number - speicla numberic values: infinity, -infinity, NaN
+//primitive : 값 자체가 메모리에 저장
+//object : 크키가 커서 메모리에 값을 저장할 수 없음, 실제 객체가 있는 레퍼런스 주소를 저장함(실제로 객체가 담겨있는 메모리를 가리킴)
+
+//number - special numberic values: infinity, -infinity, NaN
 const infinity=1/0;
 const negativeInfinity=-1/0;
 const nAn='not a number'/2;
